@@ -2,6 +2,7 @@ package dungeoncrawler.game.entities;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.io.Serial;
 
 import dungeoncrawler.framework.resources.Resources;
 import dungeoncrawler.framework.utils.MathHelper;
@@ -9,6 +10,7 @@ import dungeoncrawler.game.world.Tile;
 
 public class Entity extends Rectangle {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	protected byte entityID;

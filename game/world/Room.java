@@ -10,9 +10,9 @@ import dungeoncrawler.game.world.generator.RoomData;
 
 public class Room {
 
-	private RoomData data;
-	private ArrayList<Feature> features;
-	private ArrayList<Enemy> enemies;
+	private final RoomData data;
+	private final ArrayList<Feature> features;
+	private final ArrayList<Enemy> enemies;
 	
 	public Room(RoomData data) {
 		this.data = data;

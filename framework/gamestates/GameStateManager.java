@@ -6,7 +6,7 @@ import java.util.Stack;
 
 public class GameStateManager {
 
-	private Stack<GameState> states;
+	private final Stack<GameState> states;
 	
 	public GameStateManager() {
 		this.states = new Stack<>();
@@ -16,10 +16,12 @@ public class GameStateManager {
 		this.states.add(state);
 	}
 	
+	@SuppressWarnings("unused")
 	public void backToPreviousState() {
 		this.states.pop();
 	}
 	
+	@SuppressWarnings("unused")
 	public void clearStack() {
 		this.states.clear();
 	}

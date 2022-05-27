@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 public abstract class GameState {
 
-	protected GameStateManager gameStateManager;
+	protected final GameStateManager gameStateManager;
 	
 	protected GameState(GameStateManager manager) {
 		this.gameStateManager = manager;

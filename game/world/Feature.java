@@ -2,6 +2,7 @@ package dungeoncrawler.game.world;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.io.Serial;
 
 import dungeoncrawler.framework.resources.Resources;
 import dungeoncrawler.framework.utils.FunctionalInterface;
@@ -9,9 +10,10 @@ import dungeoncrawler.framework.utils.MathHelper;
 
 public class Feature extends Tile {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
-	private FunctionalInterface action;
+	private final FunctionalInterface action;
 	
 	public Feature(byte id, FunctionalInterface action) {
 		super(id, MathHelper.randomInt(2, 14), MathHelper.randomInt(2, 7), false);

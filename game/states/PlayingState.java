@@ -19,9 +19,9 @@ import dungeoncrawler.game.world.generator.RoomData;
 
 public class PlayingState extends GameState {
 
-	private LevelGenerator generator;
+	private final LevelGenerator generator;
 	private World world;
-	private Player player;
+	private final Player player;
 	
 	protected PlayingState(GameStateManager manager) {
 		super(manager);
@@ -62,40 +62,22 @@ public class PlayingState extends GameState {
 
 	@Override
 	protected void keyPressed(int keyCode) {
-		switch(keyCode) {
-		case KeyEvent.VK_W:
-			this.player.setMovingUp(true);
-			break;
-		case KeyEvent.VK_A:
-			this.player.setMovingLeft(true);
-			break;
-		case KeyEvent.VK_S:
-			this.player.setMovingDown(true);
-			break;
-		case KeyEvent.VK_D:
-			this.player.setMovingRight(true);
-			break;
-		case KeyEvent.VK_Q:
-			this.player.attack();
-			break;
+		switch (keyCode) {
+			case KeyEvent.VK_W -> this.player.setMovingUp(true);
+			case KeyEvent.VK_A -> this.player.setMovingLeft(true);
+			case KeyEvent.VK_S -> this.player.setMovingDown(true);
+			case KeyEvent.VK_D -> this.player.setMovingRight(true);
+			case KeyEvent.VK_Q -> this.player.attack();
 		}
 	}
 
 	@Override
 	protected void keyReleased(int keyCode) {
-		switch(keyCode) {
-		case KeyEvent.VK_W:
-			this.player.setMovingUp(false);
-			break;
-		case KeyEvent.VK_A:
-			this.player.setMovingLeft(false);
-			break;
-		case KeyEvent.VK_S:
-			this.player.setMovingDown(false);
-			break;
-		case KeyEvent.VK_D:
-			this.player.setMovingRight(false);
-			break;
+		switch (keyCode) {
+			case KeyEvent.VK_W -> this.player.setMovingUp(false);
+			case KeyEvent.VK_A -> this.player.setMovingLeft(false);
+			case KeyEvent.VK_S -> this.player.setMovingDown(false);
+			case KeyEvent.VK_D -> this.player.setMovingRight(false);
 		}
 	}
 	
@@ -139,10 +121,10 @@ public class PlayingState extends GameState {
 	}
 	
 	private void givePlayerRandomLoot() {
-		switch(MathHelper.randomInt(3)) {
-		case 0: this.player.addArmor(MathHelper.randomInt(3, 5)); break;
-		case 1: this.player.giveGold(MathHelper.randomInt(3, 7)); break;
-		case 2: this.player.instantHeal(MathHelper.randomInt(2, 5)); break;
+		switch (MathHelper.randomInt(3)) {
+			case 0 -> this.player.addArmor(MathHelper.randomInt(3, 5));
+			case 1 -> this.player.giveGold(MathHelper.randomInt(3, 7));
+			case 2 -> this.player.instantHeal(MathHelper.randomInt(2, 5));
 		}
 	}
 	

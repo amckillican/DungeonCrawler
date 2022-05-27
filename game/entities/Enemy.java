@@ -2,11 +2,14 @@ package dungeoncrawler.game.entities;
 
 import dungeoncrawler.framework.utils.MathHelper;
 
+import java.io.Serial;
+
 public class Enemy extends Entity {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
-	private Player target;
+	private final Player target;
 	
 	private int hp;
 	
@@ -42,14 +45,12 @@ public class Enemy extends Entity {
 			if(this.target.y < super.y) {
 				super.up = true;
 				super.down = false;
-				super.left = false;
-				super.right = false;
 			} else {
 				super.up = false;
 				super.down = true;
-				super.left = false;
-				super.right = false;
 			}
+			super.left = false;
+			super.right = false;
 		}
 		else {
 			if(this.target.x < super.x) {
@@ -62,24 +63,24 @@ public class Enemy extends Entity {
 		}
 	}
 	
+	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void setMovingUp(boolean up) {
-		return;
 	}
 	
+	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void setMovingDown(boolean down) {
-		return;
 	}
 	
+	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void setMovingLeft(boolean left) {
-		return;
 	}
 	
+	@SuppressWarnings("EmptyMethod")
 	@Override
 	public void setMovingRight(boolean right) {
-		return;
 	}
 	
 	public int getHp() {

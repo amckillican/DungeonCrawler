@@ -11,7 +11,7 @@ import dungeoncrawler.framework.gui.WindowManager;
 
 public class MainMenu extends GameState {
 
-	private String[] optionsMenu;
+	private final String[] optionsMenu;
 	private static final String START_GAME = "Start Game!";
 	private static final String QUIT_GAME = "Quit game";
 	private int selected;
@@ -49,13 +49,9 @@ public class MainMenu extends GameState {
 			if(this.selected < this.optionsMenu.length-1) this.selected++;
 			break;
 		case KeyEvent.VK_ENTER:
-			switch(this.optionsMenu[selected]) {
-			case START_GAME:
-				super.gameStateManager.stackState(new PlayingState(gameStateManager));
-				break;
-			case QUIT_GAME:
-				System.exit(0);
-				break;
+			switch (this.optionsMenu[selected]) {
+				case START_GAME -> super.gameStateManager.stackState(new PlayingState(gameStateManager));
+				case QUIT_GAME -> System.exit(0);
 			}
 			break;
 		}

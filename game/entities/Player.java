@@ -3,6 +3,7 @@ package dungeoncrawler.game.entities;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.io.Serial;
 
 import dungeoncrawler.framework.resources.Resources;
 import dungeoncrawler.framework.utils.MathHelper;
@@ -10,6 +11,7 @@ import dungeoncrawler.game.world.Tile;
 
 public class Player extends Entity {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private int hp;
@@ -81,11 +83,11 @@ public class Player extends Entity {
 	public void move() {
 		if(this.attackTime == 0) {
 			super.move();
-			switch(super.facing) {
-			case NORTH: super.entityID = Resources.PLAYER_BACK; break;
-			case SOUTH: super.entityID = Resources.PLAYER; break;
-			case WEST: super.entityID = Resources.PLAYER_LEFT; break;
-			case EAST: super.entityID = Resources.PLAYER_RIGHT; break;
+			switch (super.facing) {
+				case NORTH -> super.entityID = Resources.PLAYER_BACK;
+				case SOUTH -> super.entityID = Resources.PLAYER;
+				case WEST -> super.entityID = Resources.PLAYER_LEFT;
+				case EAST -> super.entityID = Resources.PLAYER_RIGHT;
 			}
 		}
 	}

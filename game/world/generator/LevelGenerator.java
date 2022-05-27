@@ -54,9 +54,9 @@ public class LevelGenerator {
 	}
 	
 	public boolean finished() {
-		for(int i=0;i<this.generated.length;i++) {
-			for(int j=0;j<this.generated[i].length;j++) {
-				if(!this.generated[i][j]) return false;
+		for (boolean[] booleans : this.generated) {
+			for (int j = 0; j < booleans.length; j++) {
+				if (!booleans[j]) return false;
 			}
 		}
 		return true;

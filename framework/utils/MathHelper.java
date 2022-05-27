@@ -24,8 +24,8 @@ public class MathHelper {
 		WEST(-1, 0),
 		EAST(1, 0);
 		
-		public int dirX;
-		public int dirY;
+		public final int dirX;
+		public final int dirY;
 		public Direction opposite;
 		
 		static {
@@ -35,7 +35,7 @@ public class MathHelper {
 			EAST.opposite = WEST;
 		}
 		
-		private Direction(int dirX, int dirY) {
+		Direction(int dirX, int dirY) {
 			this.dirX = dirX;
 			this.dirY = dirY;
 		}

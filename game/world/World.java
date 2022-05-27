@@ -11,7 +11,7 @@ import dungeoncrawler.game.world.generator.RoomData;
 
 public class World {
 
-	private Room[][] rooms;
+	private final Room[][] rooms;
 	private int currentX;
 	private int currentY;
 	

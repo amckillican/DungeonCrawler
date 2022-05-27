@@ -1,6 +1,7 @@
 package dungeoncrawler.game.world.generator;
 
 import java.awt.Graphics;
+import java.util.Arrays;
 import java.util.HashSet;
 
 import dungeoncrawler.framework.resources.Resources;
@@ -9,9 +10,9 @@ import dungeoncrawler.game.world.Tile;
 
 public class RoomData {
 
-	private Tile[][] tilesData;
+	private final Tile[][] tilesData;
 	
-	private HashSet<MathHelper.Direction> exits;
+	private final HashSet<MathHelper.Direction> exits;
 	
 	public RoomData(byte[][] tilesData, MathHelper.Direction... exits) {
 		this.tilesData = new Tile[tilesData.length][tilesData[0].length];
@@ -21,9 +22,7 @@ public class RoomData {
 			}
 		}
 		this.exits = new HashSet<>();
-		for(MathHelper.Direction direction : exits) {
-			this.exits.add(direction);
-		}
+		this.exits.addAll(Arrays.asList(exits));
 	}
 	
 	public void render(Graphics graphics) {

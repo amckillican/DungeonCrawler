@@ -15,10 +15,11 @@ public class Player extends Entity {
 	private static final long serialVersionUID = 1L;
 
 	private int hp;
-	private final int maxHp;
+	private static int maxHp;
 	private byte regenDelay;
 	private int armor;
 	private int gold;
+	private static int damage;
 	
 	private byte attackTime;
 	private byte damageTime;
@@ -32,6 +33,7 @@ public class Player extends Entity {
 		this.gold = 0;
 		this.attackTime = 0;
 		this.damageTime = 0;
+		this.damage = 0;
 	}
 	
 	public void replaceRandomly() {
@@ -77,6 +79,14 @@ public class Player extends Entity {
 	
 	public void giveGold(int amount) {
 		this.gold += amount;
+	}
+
+	public static void addHealth(){
+		maxHp+=5;
+	}
+
+	public static void addDamage(){
+		damage+=5;
 	}
 	
 	@Override
@@ -133,7 +143,7 @@ public class Player extends Entity {
 	
 	public void damage(int amount) {
 		if(this.damageTime == 0) {
-			this.hp -= amount;
+			this.hp -= (amount + damage);
 			this.damageTime = 50;
 		}
 	}

@@ -4,12 +4,11 @@ import java.awt.Graphics;
 
 public abstract class GameState {
 
-	protected final GameStateManager gameStateManager;
+	protected GameStateManager gameStateManager;
 	
 	protected GameState(GameStateManager manager) {
 		this.gameStateManager = manager;
 	}
-	
 	protected abstract void loop();
 	
 	protected abstract void render(Graphics graphics);
@@ -18,3 +17,4 @@ public abstract class GameState {
 	
 	protected abstract void keyReleased(int keyCode);
 }
+

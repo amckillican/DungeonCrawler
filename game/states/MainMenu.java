@@ -14,11 +14,12 @@ public class MainMenu extends GameState {
 	private final String[] optionsMenu;
 	private static final String START_GAME = "Start Game!";
 	private static final String QUIT_GAME = "Quit game";
+	private static final String UPGRADES = "Upgrades";
 	private int selected;
 		
 	public MainMenu(GameStateManager manager) {
 		super(manager);
-		this.optionsMenu = new String[] {START_GAME, QUIT_GAME};
+		this.optionsMenu = new String[] {START_GAME, UPGRADES, QUIT_GAME};
 		this.selected = 0;
 	}
 
@@ -52,6 +53,7 @@ public class MainMenu extends GameState {
 			switch (this.optionsMenu[selected]) {
 				case START_GAME -> super.gameStateManager.stackState(new PlayingState(gameStateManager));
 				case QUIT_GAME -> System.exit(0);
+				case UPGRADES -> super.gameStateManager.stackState(new Upgrade(gameStateManager));
 			}
 			break;
 		}

@@ -41,6 +41,9 @@ public class PlayingState extends GameState {
 		
 		this.player.regenerateHealth();
 		this.playerAttacks();
+		if(player.getHp() < 1){
+			super.gameStateManager.stackState(new MainMenu(gameStateManager));
+		}
 	}
 
 	@Override

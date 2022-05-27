@@ -15,18 +15,18 @@ import dungeoncrawler.framework.gui.WindowManager;
 import dungeoncrawler.game.states.MainMenu;
 
 public class Engine {
-
+	//Initialize variables
 	private static GameStateManager gameStateManager;
 	
 	private static WindowManager windowManager;
 	private static Timer timer;
-	
+	//Initizalize for running game
 	public static void init() {
 		gameStateManager = new GameStateManager();
 		windowManager = new WindowManager();
 		timer = new Timer(20, new MainGameLoop());
 	}
-	
+	//On start create game state, screen, input listener
 	public static void start() {
 		gameStateManager.stackState(new MainMenu(gameStateManager));
 		windowManager.addPanel(new GameScreen());
@@ -36,7 +36,7 @@ public class Engine {
 	}
 	
 	private static class MainGameLoop implements ActionListener {
-
+		//When an action is performed check what action was done
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			gameStateManager.loop();
@@ -48,7 +48,7 @@ public class Engine {
 		
 		@Serial
 		private static final long serialVersionUID = 1L;
-
+		//Render and repaint screen
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
@@ -56,7 +56,7 @@ public class Engine {
 			repaint();
 		}
 	}
-	
+	//When a key is pressed and released check which key it was
 	private static class Keyboard implements KeyListener {
 
 		@Override

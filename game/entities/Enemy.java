@@ -8,22 +8,22 @@ public class Enemy extends Entity {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
-
+	//Make the player the target always
 	private final Player target;
-	
+	//Initialize the hp
 	private int hp;
-	
+	//Create an enemy that targets the player with a set amount of health
 	public Enemy(byte id, int health, Player target) {
 		super(id, MathHelper.randomInt(2, 14), MathHelper.randomInt(2, 7));
 		this.target = target;
 		super.speed = 2;
 		this.hp = health;
 	}
-	
+	//Create a copy of this enemy for times where there is more than one
 	public Enemy(Enemy copy) {
 		this(copy.getID(), copy.hp, copy.target);
 	}
-
+	//Moves the bat towards the target
 	@Override
 	public void move() {
 		super.move();
@@ -82,11 +82,11 @@ public class Enemy extends Entity {
 	@Override
 	public void setMovingRight(boolean right) {
 	}
-	
+	//Returns hp of enemy to see if dead
 	public int getHp() {
 		return hp;
 	}
-	
+	//Calculates damage and knock back
 	public void damage(int amount, MathHelper.Direction knockback) {
 		this.hp -= amount;
 		super.x += knockback.dirX * 90;

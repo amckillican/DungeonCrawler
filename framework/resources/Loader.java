@@ -7,13 +7,14 @@ import java.util.Objects;
 import javax.imageio.ImageIO;
 
 public class Loader {
-	
+	//Attempt to load all the files in rooms folder
 	public static void load() {
 		try {
 			File texturesFolder = new File("res/rooms");
 			for(File imgFile : Objects.requireNonNull(texturesFolder.listFiles())) {
 					Resources.ROOMS.put(imgFile.getName(), ImageIO.read(imgFile));
 			}
+			//Load all texture files from textures folder
 			Resources.TEXTURES.add(Resources.FLOOR, ImageIO.read(new File("res/textures/floor.png")));
 			Resources.TEXTURES.add(Resources.STONE, ImageIO.read(new File("res/textures/stone.png")));
 			Resources.TEXTURES.add(Resources.WALL, ImageIO.read(new File("res/textures/wall.png")));

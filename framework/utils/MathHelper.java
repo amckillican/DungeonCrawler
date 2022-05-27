@@ -3,7 +3,7 @@ package dungeoncrawler.framework.utils;
 import java.util.Random;
 
 public class MathHelper {
-	
+	//Initialize random for use throughout game
 	private static final Random rand = new Random();
 
 	public static int randomInt(int upperBound) {
@@ -13,11 +13,11 @@ public class MathHelper {
 	public static int randomInt(int lowerBound, int upperBound) {
 		return rand.nextInt((upperBound - lowerBound) + 1) + lowerBound;
 	}
-	
+	//Returns directional values
 	public static Direction randomDirection() {
 		return Direction.values()[rand.nextInt(Direction.values().length)];
 	}
-	
+	//Initializes directions
 	public enum Direction {
 		NORTH(0, -1),
 		SOUTH(0, 1),
@@ -27,14 +27,14 @@ public class MathHelper {
 		public final int dirX;
 		public final int dirY;
 		public Direction opposite;
-		
+		//Creates opposite directions
 		static {
 			NORTH.opposite = SOUTH;
 			SOUTH.opposite = NORTH;
 			WEST.opposite = EAST;
 			EAST.opposite = WEST;
 		}
-		
+		//Sets direction
 		Direction(int dirX, int dirY) {
 			this.dirX = dirX;
 			this.dirY = dirY;

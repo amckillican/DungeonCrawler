@@ -38,6 +38,7 @@ public class Upgrade extends GameState {
             if (i == this.selected) graphics.setColor(Color.GREEN);
             else graphics.setColor(Color.WHITE);
             graphics.drawString(this.upgradeMenu[i], 20, 50 + i * 40);
+            graphics.drawString("Upgrade Points: " + Player.getEXP(), 400,20);
         }
     }
 
@@ -53,8 +54,18 @@ public class Upgrade extends GameState {
                 break;
             case KeyEvent.VK_ENTER:
                 switch (this.upgradeMenu[selected]){
-                    case HEALTH -> Player.addHealth();
-                    case DAMAGE -> Player.addDamage();
+                    case HEALTH -> {
+                        if(Player.getEXP() > 0) {
+                            Player.addHealth();
+                            Player.removeEXP();
+                        }
+                    }
+                    case DAMAGE -> {
+                        if(Player.getEXP() > 0) {
+                            Player.addDamage();
+                            Player.removeEXP();
+                        }
+                    }
                     case BACK -> super.gameStateManager.stackState(new MainMenu(gameStateManager));
                 }
                 break;

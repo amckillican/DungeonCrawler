@@ -43,6 +43,7 @@ public class PlayingState extends GameState {
 		this.playerAttacks();
 		if(player.getHp() < 1){
 			super.gameStateManager.stackState(new MainMenu(gameStateManager));
+			Player.addEXP();
 		}
 	}
 
@@ -61,6 +62,7 @@ public class PlayingState extends GameState {
 		graphics.drawString(this.player.getArmor()+"", Tile.SIZE*2/3+85, 20);
 		graphics.drawImage(Resources.TEXTURES.get(Resources.GOLD), 160, 0, Tile.SIZE*2/3, Tile.SIZE*2/3, null);
 		graphics.drawString(this.player.getGold()+"", Tile.SIZE*2/3+165, 20);
+		graphics.drawString("Level: ", Tile.SIZE*2/3+200, 20);
 	}
 
 	@Override

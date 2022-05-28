@@ -14,7 +14,7 @@ public class World {
 	private final Room[][] rooms;
 	private int currentX;
 	private int currentY;
-	
+	//Generates the room based on the hash map
 	public World(HashSet<MathHelper.Direction>[][] roomsData) {
 		this.rooms = new Room[roomsData.length][roomsData[0].length];
 		for(int i=0;i<LevelGenerator.WORLD_SIZE;i++) {
@@ -28,19 +28,19 @@ public class World {
 		this.currentX = 0;
 		this.currentY = 0;
 	}
-	
+	//Returns a specific tile in the room
 	public Room getRoom(int x, int y) {
 		return rooms[x][y];
 	}
-	
+	//Returns the current tile player is on in room
 	public Room getRoom() {
 		return rooms[currentX][currentY];
 	}
-	
+	//Returns a random room layout
 	public Room getRoomRandom() {
 		return rooms[MathHelper.randomInt(LevelGenerator.WORLD_SIZE)][MathHelper.randomInt(LevelGenerator.WORLD_SIZE)];
 	}
-	
+	//If player is out of bounds change the room
 	public void changeRoom(Entity player) {
 		if(player.getCenterX() < 0) {
 			this.currentX--;

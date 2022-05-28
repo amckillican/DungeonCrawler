@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
-			
+			//Load all textures and start the engine to start the game
 			@Override
 			public void run() {
 				Loader.load();

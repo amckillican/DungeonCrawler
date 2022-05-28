@@ -4,7 +4,7 @@ import dungeoncrawler.framework.utils.MathHelper;
 import dungeoncrawler.game.world.generator.RoomData;
 
 public class Init {
-
+	//The room layouts in byte form in an array to choose a random one when needed
 	public static final RoomData[] ROOMS = new RoomData[] {
 			new RoomData(new byte[][] {{1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1},
 									   {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1},

@@ -155,12 +155,10 @@ public class Player extends Entity {
 		graphics.drawImage(Resources.TEXTURES.get(entityID + animationFrame), super.x, super.y, super.width, super.height, null);
 	}
 	//Calculate the damage dealt to enemy
-	public void damage(int amount, MathHelper.Direction knockback) {
+	public void damage(int amount) {
 		if(this.damageTime == 0) {
 			this.hp -= (amount + damage);
 			this.damageTime = 50;
 		}
-		super.x += knockback.dirX * 30;
-		super.y += knockback.dirY * 30;
 	}
 }

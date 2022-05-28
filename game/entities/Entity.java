@@ -22,7 +22,7 @@ public class Entity extends Rectangle {
 	
 	protected int speed;
 	
-	public static MathHelper.Direction facing;
+	protected MathHelper.Direction facing;
 	
 	protected byte animationFrame;
 	protected byte animationDelay;

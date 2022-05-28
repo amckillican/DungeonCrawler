@@ -92,9 +92,4 @@ public class Enemy extends Entity {
 		super.x += knockback.dirX * 90;
 		super.y += knockback.dirY * 90;
 	}
-
-	public void blowBack(MathHelper.Direction knockback) {
-		super.x -= knockback.dirX * 30;
-		super.y -= knockback.dirY * 30;
-	}
 }

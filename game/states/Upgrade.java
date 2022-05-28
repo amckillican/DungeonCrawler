@@ -50,10 +50,10 @@ public class Upgrade extends GameState {
             case KeyEvent.VK_ESCAPE:
                 super.gameStateManager.stackState(new MainMenu(gameStateManager));
                 break;
-            case KeyEvent.VK_UP:
+            case KeyEvent.VK_W:
                 if (this.selected > 0) this.selected--;
                 break;
-            case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_S:
                 if (this.selected < this.upgradeMenu.length - 1) this.selected++;
                 break;
             case KeyEvent.VK_ENTER:

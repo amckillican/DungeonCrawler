@@ -152,8 +152,7 @@ public class PlayingState extends GameState {
 			this.world.getRoom().getEnemies().get(i).move();
 			
 			if(this.world.getRoom().getEnemies().get(i).intersects(this.player)) {
-				this.player.damage(5 -  5*this.player.getArmor()/100, Entity.facing);
-				this.world.getRoom().getEnemies().get(i).blowBack(this.player.getFacing());
+				this.player.damage(5 -  5*this.player.getArmor()/100);
 			}
 			
 			if(this.world.getRoom().getEnemies().get(i).intersects(this.player.getAttackBox())) {

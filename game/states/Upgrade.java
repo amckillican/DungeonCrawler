@@ -15,7 +15,7 @@ public class Upgrade extends GameState {
     private final String[] upgradeMenu;
     private static final String BACK = "Back";
     private static final String HEALTH = "Health";
-    private static final String ATTACK = "Attack Speed";
+    private static final String ATTACK = "Attack Speed - Only Upgradable 4 Times";
     private int selected;
     //Add options to array
     protected Upgrade(GameStateManager manager) {
@@ -65,9 +65,9 @@ public class Upgrade extends GameState {
                             Player.removeEXP();
                         }
                     }
-                    //If player has upgraded speed too much stop them or cool down time becomes negative
+                    //If player has upgraded speed too much stop them or attacks don't work
                     case ATTACK -> {
-                        if(Player.getEXP() > 0 && Player.getSpeed() < 30) {
+                        if(Player.getEXP() > 0 && Player.getSpeed() < 8) {
                             Player.addSpeed();
                             Player.removeEXP();
                         }

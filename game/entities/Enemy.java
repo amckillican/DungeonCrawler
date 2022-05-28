@@ -17,12 +17,12 @@ public class Enemy extends Entity {
 	public Enemy(byte id, int health, Player target) {
 		super(id, MathHelper.randomInt(2, 14), MathHelper.randomInt(2, 7));
 		this.target = target;
-		super.speed = (int)Math.ceil(PlayingState.Level/2.0) + 1;
-		this.hp = health;
+		super.speed = (int) Math.ceil(PlayingState.Level / 2.0) + 1;
+		hp = health;
 	}
 	//Create a copy of this enemy for times where there is more than one
 	public Enemy(Enemy copy) {
-		this(copy.getID(), copy.hp, copy.target);
+		this(copy.getID(), hp, copy.target);
 	}
 	//Moves the bat towards the target
 	@Override
@@ -92,7 +92,7 @@ public class Enemy extends Entity {
 	}
 	//Calculates damage and knock back
 	public void damage(int amount, MathHelper.Direction knockback) {
-		this.hp -= amount;
+		hp -= amount;
 		super.x += knockback.dirX * 90;
 		super.y += knockback.dirY * 90;
 	}

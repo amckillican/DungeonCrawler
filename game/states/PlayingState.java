@@ -156,6 +156,7 @@ public class PlayingState extends GameState {
 			}
 			
 			if(this.world.getRoom().getEnemies().get(i).intersects(this.player.getAttackBox())) {
+				this.world.getRoom().getEnemies().get(i).damage(3, this.player.getFacing());
 				if(this.world.getRoom().getEnemies().get(i).getHp() <= 0) {
 					//noinspection SuspiciousListRemoveInLoop
 					this.world.getRoom().getEnemies().remove(i);

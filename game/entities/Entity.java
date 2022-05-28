@@ -42,7 +42,7 @@ public class Entity extends Rectangle {
 	public byte getID() {
 		return entityID;
 	}
-	//Figure out which way the player is moving and stop them
+	//Figure out which way the entity is moving
 	public void move() {
 		if(up) {
 			super.y-=this.speed;
@@ -61,27 +61,27 @@ public class Entity extends Rectangle {
 			facing = MathHelper.Direction.EAST;
 		}
 	}
-	//Sets the way player is moving to up
+	//Sets the way entity is moving to up
 	public void setMovingUp(boolean up) {
 		this.up = up;
 	}
-	//Sets the way player is moving to down
+	//Sets the way entity is moving to down
 	public void setMovingDown(boolean down) {
 		this.down = down;
 	}
-	//Sets the way player is moving to left
+	//Sets the way entity is moving to left
 	public void setMovingLeft(boolean left) {
 		this.left = left;
 	}
-	//Sets the way player is moving to right
+	//Sets the way entity is moving to right
 	public void setMovingRight(boolean right) {
 		this.right = right;
 	}
-	//Sets the center of block on the x
+	//Sets the center of entity on the x
 	public void setCenterX(int x) {
 		super.x = x - super.width/2;
 	}
-	//Sets the center of the block on the y
+	//Sets the center of the entity on the y
 	public void setCenterY(int y) {
 		super.y = y - super.height/2;
 	}
@@ -96,7 +96,7 @@ public class Entity extends Rectangle {
 		}
 		graphics.drawImage(Resources.TEXTURES.get(entityID + animationFrame), super.x, super.y, super.width, super.height, null);
 	}
-	//Does collision with player and enemy
+	//Does collision with player and entity and entity on entity
 	public void handleCollisionWith(Tile tile) {
 		Rectangle intersection = this.intersection(tile);
 		if(intersection.isEmpty() || !tile.isWall())

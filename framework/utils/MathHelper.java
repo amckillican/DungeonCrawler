@@ -5,11 +5,11 @@ import java.util.Random;
 public class MathHelper {
 	//Initialize random for use throughout game
 	private static final Random rand = new Random();
-
+	//Returns a random integer with an upper limit
 	public static int randomInt(int upperBound) {
 		return rand.nextInt(upperBound);
 	}
-
+	//Returns a random integer with an upper and lower limit
 	public static int randomInt(int lowerBound, int upperBound) {
 		return rand.nextInt((upperBound - lowerBound) + 1) + lowerBound;
 	}

@@ -16,7 +16,7 @@ public class Dead extends GameState {
     protected void loop() {
 
     }
-
+    //Render in the death screen and text
     @Override
     protected void render(Graphics graphics) {
         graphics.drawImage(Resources.TEXTURES.get(31), 0, 0, null);
@@ -24,7 +24,7 @@ public class Dead extends GameState {
         graphics.setFont(new Font("Araial", Font.BOLD, 25));
         graphics.drawString("Press Enter To Continue", 260, 400);
     }
-
+    //When Esc or enter is pressed go to main menu
     @Override
     protected void keyPressed(int keyCode) {
         if (keyCode == KeyEvent.VK_ESCAPE)

@@ -3,6 +3,7 @@ package dungeoncrawler.game.states;
 import dungeoncrawler.framework.gamestates.GameState;
 import dungeoncrawler.framework.gamestates.GameStateManager;
 import dungeoncrawler.framework.gui.WindowManager;
+import dungeoncrawler.framework.resources.Resources;
 import dungeoncrawler.game.entities.Player;
 
 import java.awt.Color;
@@ -27,11 +28,10 @@ public class Upgrade extends GameState {
     protected void loop() {
 
     }
-    //Render in the menu and the amount of upgrade points player has
+    //Render in the menu, background and the amount of upgrade points player has
     @Override
     protected void render(Graphics graphics) {
-        graphics.setColor(new Color(30, 30, 70));
-        graphics.fillRect(0, 0, WindowManager.WIDTH, WindowManager.HEIGHT);
+        graphics.drawImage(Resources.TEXTURES.get(33), 0, 0, null);
 
         graphics.setFont(new Font("Araial", Font.PLAIN, 25));
         for(int i=0;i<this.upgradeMenu.length;i++) {

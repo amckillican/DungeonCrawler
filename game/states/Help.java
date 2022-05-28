@@ -16,7 +16,7 @@ public class Help extends GameState {
     protected void loop() {
 
     }
-
+    //Render background and text explaining game
     @Override
     protected void render(Graphics graphics) {
         graphics.drawImage(Resources.TEXTURES.get(30), 0,0, null);
@@ -37,7 +37,7 @@ public class Help extends GameState {
         graphics.drawString("1 upgrade point", 0, 200);
         graphics.drawString("You can use them to upgrade max health and attack speed", 0, 225);
     }
-
+    //When Esc is pressed go back to main menu
     @Override
     protected void keyPressed(int keyCode) {
         if (keyCode == KeyEvent.VK_ESCAPE)

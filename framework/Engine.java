@@ -20,7 +20,7 @@ public class Engine {
 	
 	private static WindowManager windowManager;
 	private static Timer timer;
-	//Initizalize for running game
+	//Initialize for running game
 	public static void init() {
 		gameStateManager = new GameStateManager();
 		windowManager = new WindowManager();

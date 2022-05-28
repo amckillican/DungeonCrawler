@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Resources {
-	//Give each texture a number to place in certain spot on screen
+	//Give each texture a byte value to place in certain spot on screen
 	public static final byte FLOOR = 0;
 	public static final byte STONE = 1;
 	public static final byte WALL = 2;
@@ -38,6 +38,8 @@ public class Resources {
 	public static final byte GARNER2 = 29;
 	public static final byte TUT = 30;
 	public static final byte DEAD = 31;
+	public static final byte TITLE = 32;
+	public static final byte UP = 33;
 
 
 	//Create a hash map of the rooms and an arraylist of the textures

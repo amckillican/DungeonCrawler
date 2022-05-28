@@ -87,6 +87,7 @@ public class Enemy extends Entity {
 	public static int getHp() {
 		return hp;
 	}
+	//Adds hp based on the level player is on
 	public static void addHp(){
 		hp+= PlayingState.enemyHealth + PlayingState.Level*3;
 	}

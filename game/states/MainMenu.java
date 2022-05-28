@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import dungeoncrawler.framework.gamestates.GameState;
 import dungeoncrawler.framework.gamestates.GameStateManager;
 import dungeoncrawler.framework.gui.WindowManager;
+import dungeoncrawler.framework.resources.Resources;
 
 public class MainMenu extends GameState {
 	//Set up an array with strings to display options
@@ -27,11 +28,10 @@ public class MainMenu extends GameState {
 	@Override
 	protected void loop() {
 	}
-	//Set a background colour and print out the array with menu options
+	//Set a background image and print out the array with menu options
 	@Override
 	protected void render(Graphics graphics) {
-		graphics.setColor(new Color(30, 30, 70));
-		graphics.fillRect(0, 0, WindowManager.WIDTH, WindowManager.HEIGHT);
+		graphics.drawImage(Resources.TEXTURES.get(32), 0, 0, null);
 		
 		graphics.setFont(new Font("Araial", Font.PLAIN, 25));
 		for(int i=0;i<this.optionsMenu.length;i++) {
@@ -50,6 +50,7 @@ public class MainMenu extends GameState {
 		case KeyEvent.VK_S:
 			if(this.selected < this.optionsMenu.length-1) this.selected++;
 			break;
+			//When an option is pressed set game state to that menu
 		case KeyEvent.VK_ENTER:
 			switch (this.optionsMenu[selected]) {
 				case START_GAME -> super.gameStateManager.stackState(new PlayingState(gameStateManager));
@@ -58,6 +59,7 @@ public class MainMenu extends GameState {
 				case HELP -> super.gameStateManager.stackState(new Help(gameStateManager));
 			}
 			break;
+			//Exit game on Esc
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);
 			break;

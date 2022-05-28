@@ -47,6 +47,8 @@ public class Loader {
 			Resources.TEXTURES.add(Resources.GARNER2, ImageIO.read(new File("res/textures/garner.png")));
 			Resources.TEXTURES.add(Resources.TUT, ImageIO.read(new File("res/textures/help.png")));
 			Resources.TEXTURES.add(Resources.DEAD, ImageIO.read(new File("res/textures/youdied.png")));
+			Resources.TEXTURES.add(Resources.TITLE, ImageIO.read(new File("res/textures/title.png")));
+			Resources.TEXTURES.add(Resources.UP, ImageIO.read(new File("res/textures/up.png")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

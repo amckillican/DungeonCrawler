@@ -3,6 +3,7 @@ package dungeoncrawler.game.world.generator;
 import java.util.HashSet;
 
 import dungeoncrawler.framework.utils.MathHelper;
+import dungeoncrawler.game.states.PlayingState;
 
 public class LevelGenerator {
 
@@ -25,6 +26,7 @@ public class LevelGenerator {
 			}
 		}
 		this.setRandomPosition();
+		PlayingState.Level++;
 	}
 	//Using the bytes generate the objects in the correct order
 	public void generate() {

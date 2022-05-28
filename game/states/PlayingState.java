@@ -22,6 +22,7 @@ public class PlayingState extends GameState {
 	private final LevelGenerator generator;
 	private World world;
 	private final Player player;
+	public static int Level = 0;
 	//Tell game state manager what game state to play and create new levels and the player
 	protected PlayingState(GameStateManager manager) {
 		super(manager);
@@ -66,7 +67,7 @@ public class PlayingState extends GameState {
 		graphics.drawString(this.player.getArmor()+"", Tile.SIZE*2/3+85, 20);
 		graphics.drawImage(Resources.TEXTURES.get(Resources.GOLD), 160, 0, Tile.SIZE*2/3, Tile.SIZE*2/3, null);
 		graphics.drawString(this.player.getGold()+"", Tile.SIZE*2/3+165, 20);
-		graphics.drawString("Level: ", Tile.SIZE*2/3+200, 20);
+		graphics.drawString("Level: " + Level, Tile.SIZE*2/3+200, 20);
 	}
 
 	@Override
@@ -105,7 +106,12 @@ public class PlayingState extends GameState {
 		}
 		
 		for(int i=0;i<25;i++) {
-			this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.ENEMY, 5, this.player));
+			//if(Level == 1) {
+				this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.ENEMY, 5, this.player));
+			//}
+			//if(Level == 2){
+				//this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.SHU, 9, this.player));
+			//}
 		}
 		//Spawn the player
 		this.spawnPlayer();

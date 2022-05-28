@@ -24,6 +24,7 @@ public class Splash extends GameState {
         graphics.drawImage(Resources.TEXTURES.get(21), 0, 0, null);
         graphics.setFont(new Font("Araial", Font.BOLD, 40));
         graphics.drawString("The Dropped Dungeon", 200, 225);
+        graphics.setColor(Color.WHITE);
         graphics.setFont(new Font("Araial", Font.BOLD, 25));
         graphics.drawString("Press Enter To Begin", 300, 275);
         graphics.drawString("By: Adam Fischer, Alex McKillican and Ben Smith", 10, 425);

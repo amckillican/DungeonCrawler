@@ -29,6 +29,15 @@ public class Resources {
 	public static final byte GOLD = 20;
 	public static final byte SPLASH = 21;
 	public static final byte SHU = 22;
+	public static final byte SHU2 = 23;
+	public static final byte AARON = 24;
+	public static final byte AARON2 = 25;
+	public static final byte TUSH = 26;
+	public static final byte TUSH2 = 27;
+	public static final byte GARNER = 28;
+	public static final byte GARNER2 = 29;
+
+
 	//Create a hash map of the rooms and an arraylist of the textures
 	public static final HashMap<String, BufferedImage> ROOMS = new HashMap<>();
 	public static final ArrayList<BufferedImage> TEXTURES = new ArrayList<>();

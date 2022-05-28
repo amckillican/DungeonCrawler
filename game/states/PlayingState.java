@@ -24,11 +24,13 @@ public class PlayingState extends GameState {
 	private World world;
 	private final Player player;
 	public static int Level = 0;
+	public static int enemyHealth = 3;
 	//Tell game state manager what game state to play and create new levels and the player
 	protected PlayingState(GameStateManager manager) {
 		super(manager);
 		this.generator = new LevelGenerator();
 		this.player = new Player();
+		Level = 0;
 		this.generateLevel();
 	}
 
@@ -93,7 +95,7 @@ public class PlayingState extends GameState {
 			case KeyEvent.VK_D -> this.player.setMovingRight(false);
 		}
 	}
-	//Generate a new room randomly
+	//Generate a new room randomly and generates it
 	private void generateLevel() {
 		this.generator.reset();
 		while(!this.generator.finished()) {
@@ -108,12 +110,39 @@ public class PlayingState extends GameState {
 		}
 		
 		for(int i=0;i<25;i++) {
-			//if(Level == 1) {
-				this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.ENEMY, 5, this.player));
-			//}
-			//if(Level == 2){
-				//this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.SHU, 9, this.player));
-			//}
+			if(Level == 1) {
+				this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.ENEMY, enemyHealth + 3, this.player));
+			}
+			if(Level == 2){
+				this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.SHU, enemyHealth + 6, this.player));
+			}
+			if(Level == 3){
+				this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.AARON, enemyHealth + 9, this.player));
+			}
+			if(Level == 4){
+				this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.TUSH, enemyHealth + 12, this.player));
+			}
+			if(Level == 5){
+				this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.GARNER, enemyHealth + 15, this.player));
+			}
+			if(Level > 5){
+				int badGuy = MathHelper.randomInt(5);
+				if(badGuy == 0){
+					this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.ENEMY, enemyHealth + Level*3, this.player));
+				}
+				if(badGuy == 1){
+					this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.SHU, enemyHealth + Level*3, this.player));
+				}
+				if(badGuy == 2){
+					this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.AARON, enemyHealth + Level*3, this.player));
+				}
+				if(badGuy == 3){
+					this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.TUSH, enemyHealth + Level*3, this.player));
+				}
+				if(badGuy == 4){
+					this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.GARNER, enemyHealth + Level*3, this.player));
+				}
+			}
 		}
 		//Spawn the player
 		this.spawnPlayer();
@@ -156,9 +185,11 @@ public class PlayingState extends GameState {
 			}
 			
 			if(this.world.getRoom().getEnemies().get(i).intersects(this.player.getAttackBox())) {
+				this.world.getRoom().getEnemies().get(i).damage(3, this.player.getFacing());
 				if(this.world.getRoom().getEnemies().get(i).getHp() <= 0) {
 					//noinspection SuspiciousListRemoveInLoop
 					this.world.getRoom().getEnemies().remove(i);
+					Enemy.addHp();
 					this.player.giveGold(MathHelper.randomInt(2, 5));
 				}
 			}

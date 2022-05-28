@@ -38,6 +38,13 @@ public class Loader {
 			Resources.TEXTURES.add(Resources.GOLD, ImageIO.read(new File("res/textures/gold.png")));
 			Resources.TEXTURES.add(Resources.SPLASH, ImageIO.read(new File("res/textures/splash.png")));
 			Resources.TEXTURES.add(Resources.SHU, ImageIO.read(new File("res/textures/shu.png")));
+			Resources.TEXTURES.add(Resources.SHU2, ImageIO.read(new File("res/textures/shu.png")));
+			Resources.TEXTURES.add(Resources.AARON, ImageIO.read(new File("res/textures/aaron.png")));
+			Resources.TEXTURES.add(Resources.AARON2, ImageIO.read(new File("res/textures/aaron.png")));
+			Resources.TEXTURES.add(Resources.TUSH, ImageIO.read(new File("res/textures/Tush.png")));
+			Resources.TEXTURES.add(Resources.TUSH2, ImageIO.read(new File("res/textures/Tush.png")));
+			Resources.TEXTURES.add(Resources.GARNER, ImageIO.read(new File("res/textures/garner.png")));
+			Resources.TEXTURES.add(Resources.GARNER2, ImageIO.read(new File("res/textures/garner.png")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

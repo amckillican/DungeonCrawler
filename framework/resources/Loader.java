@@ -36,6 +36,7 @@ public class Loader {
 			Resources.TEXTURES.add(Resources.HEART, ImageIO.read(new File("res/textures/heart.png")));
 			Resources.TEXTURES.add(Resources.ARMOR, ImageIO.read(new File("res/textures/armor.png")));
 			Resources.TEXTURES.add(Resources.GOLD, ImageIO.read(new File("res/textures/gold.png")));
+			Resources.TEXTURES.add(Resources.SPLASH, ImageIO.read(new File("res/textures/splash.png")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

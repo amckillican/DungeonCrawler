@@ -13,6 +13,7 @@ import javax.swing.Timer;
 import dungeoncrawler.framework.gamestates.GameStateManager;
 import dungeoncrawler.framework.gui.WindowManager;
 import dungeoncrawler.game.states.MainMenu;
+import dungeoncrawler.game.states.Splash;
 
 public class Engine {
 	//Initialize variables
@@ -28,7 +29,7 @@ public class Engine {
 	}
 	//On start create game state, screen, input listener
 	public static void start() {
-		gameStateManager.stackState(new MainMenu(gameStateManager));
+		gameStateManager.stackState(new Splash(gameStateManager));
 		windowManager.addPanel(new GameScreen());
 		windowManager.addKeyListener(new Keyboard());
 		windowManager.createWindow();

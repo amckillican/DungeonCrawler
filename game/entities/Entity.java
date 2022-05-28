@@ -12,7 +12,7 @@ public class Entity extends Rectangle {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
-
+	//Initialize variables for use in constructor
 	protected byte entityID;
 	
 	protected boolean up;
@@ -26,7 +26,7 @@ public class Entity extends Rectangle {
 	
 	protected byte animationFrame;
 	protected byte animationDelay;
-	
+	//Set variable values
 	public Entity(byte id, int posXinRoom, int posYinRoom) {
 		super(posXinRoom*Tile.SIZE, posYinRoom*Tile.SIZE, Tile.SIZE, Tile.SIZE);
 		this.entityID = id;
@@ -38,11 +38,11 @@ public class Entity extends Rectangle {
 		this.facing = MathHelper.Direction.SOUTH;
 		this.animationFrame = 0;
 	}
-	
+	//Get the ID of the object
 	public byte getID() {
 		return entityID;
 	}
-	
+	//Figure out which way the player is moving and stop them
 	public void move() {
 		if(up) {
 			super.y-=this.speed;
@@ -61,31 +61,31 @@ public class Entity extends Rectangle {
 			this.facing = MathHelper.Direction.EAST;
 		}
 	}
-	
+	//Sets the way player is moving to up
 	public void setMovingUp(boolean up) {
 		this.up = up;
 	}
-	
+	//Sets the way player is moving to down
 	public void setMovingDown(boolean down) {
 		this.down = down;
 	}
-	
+	//Sets the way player is moving to left
 	public void setMovingLeft(boolean left) {
 		this.left = left;
 	}
-	
+	//Sets the way player is moving to right
 	public void setMovingRight(boolean right) {
 		this.right = right;
 	}
-	
+	//Sets the center of block on the x
 	public void setCenterX(int x) {
 		super.x = x - super.width/2;
 	}
-
+	//Sets the center of the block on the y
 	public void setCenterY(int y) {
 		super.y = y - super.height/2;
 	}
-	
+	//Renders in the entity
 	public void render(Graphics graphics) {
 		if(up || down || left || right) {
 			this.animationDelay++;
@@ -96,7 +96,7 @@ public class Entity extends Rectangle {
 		}
 		graphics.drawImage(Resources.TEXTURES.get(entityID + animationFrame), super.x, super.y, super.width, super.height, null);
 	}
-	
+	//Does collision with player and enemy
 	public void handleCollisionWith(Tile tile) {
 		Rectangle intersection = this.intersection(tile);
 		if(intersection.isEmpty() || !tile.isWall())
@@ -115,7 +115,7 @@ public class Entity extends Rectangle {
 				this.x = tile.x + this.width;
 		}
 	}
-	
+	//Check which way is facing
 	public MathHelper.Direction getFacing() {
 		return facing;
 	}

@@ -21,6 +21,7 @@ public class Player extends Entity {
 	private int gold;
 	private static int exp = 0;
 	private static int damage = 0;
+	private static int attackSpeed = 0;
 	
 	private byte attackTime;
 	private byte damageTime;
@@ -36,6 +37,7 @@ public class Player extends Entity {
 		this.damageTime = 0;
 		this.damage = 0;
 		this.exp = exp;
+		this.attackSpeed = attackSpeed;
 	}
 	//Places player randomly upon spawning into the games
 	public void replaceRandomly() {
@@ -86,9 +88,12 @@ public class Player extends Entity {
 	public static void addHealth(){
 		maxHp+=5;
 	}
-	//Adds damage dealt
-	public static void addDamage(){
-		damage+=1;
+	//Adds attack speed
+	public static void addSpeed(){
+		attackSpeed+=2;
+	}
+	public static int getSpeed(){
+		return attackSpeed;
 	}
 	//Adds an upgrade point
 	public static void addEXP(){
@@ -120,7 +125,7 @@ public class Player extends Entity {
 	}
 	//Attacks if cool down timer is over
 	public void attack() {
-		if(this.attackTime == 0) this.attackTime = 30;
+		if(this.attackTime == 0) this.attackTime = (byte)(30 - attackSpeed);
 	}
 	//Finds where the attack will hit
 	public Rectangle getAttackBox() {

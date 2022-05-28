@@ -14,12 +14,12 @@ public class Upgrade extends GameState {
     private final String[] upgradeMenu;
     private static final String BACK = "Back";
     private static final String HEALTH = "Health";
-    private static final String DAMAGE = "Damage";
+    private static final String ATTACK = "Attack Speed";
     private int selected;
     //Add options to array
     protected Upgrade(GameStateManager manager) {
         super(manager);
-        this.upgradeMenu = new String[] {BACK, HEALTH, DAMAGE};
+        this.upgradeMenu = new String[] {BACK, HEALTH, ATTACK};
         this.selected = 0;
     }
 
@@ -55,15 +55,16 @@ public class Upgrade extends GameState {
             case KeyEvent.VK_ENTER:
                 switch (this.upgradeMenu[selected]){
                     case HEALTH -> {
-                        //If player doesn't have enough exp dont upgrade
+                        //If player doesn't have enough exp don't upgrade
                         if(Player.getEXP() > 0) {
                             Player.addHealth();
                             Player.removeEXP();
                         }
                     }
-                    case DAMAGE -> {
-                        if(Player.getEXP() > 0) {
-                            Player.addDamage();
+                    //If player has upgraded speed too much stop them or cool down time becomes negative
+                    case ATTACK -> {
+                        if(Player.getEXP() > 0 && Player.getSpeed() < 30) {
+                            Player.addSpeed();
                             Player.removeEXP();
                         }
                     }

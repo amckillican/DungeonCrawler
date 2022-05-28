@@ -14,7 +14,7 @@ public class World {
 	private final Room[][] rooms;
 	private int currentX;
 	private int currentY;
-	//Generates the room based on the hash map
+	//Generates the room based on the list chosen
 	public World(HashSet<MathHelper.Direction>[][] roomsData) {
 		this.rooms = new Room[roomsData.length][roomsData[0].length];
 		for(int i=0;i<LevelGenerator.WORLD_SIZE;i++) {

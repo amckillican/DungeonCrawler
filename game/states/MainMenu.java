@@ -56,6 +56,9 @@ public class MainMenu extends GameState {
 				case UPGRADES -> super.gameStateManager.stackState(new Upgrade(gameStateManager));
 			}
 			break;
+		case KeyEvent.VK_ESCAPE:
+			System.exit(0);
+			break;
 		}
 	}
 

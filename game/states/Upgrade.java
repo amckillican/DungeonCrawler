@@ -38,14 +38,18 @@ public class Upgrade extends GameState {
             if (i == this.selected) graphics.setColor(Color.GREEN);
             else graphics.setColor(Color.WHITE);
             graphics.drawString(this.upgradeMenu[i], 20, 50 + i * 40);
-            graphics.drawString("Upgrade Points: " + Player.getEXP(), 400,20);
         }
+        graphics.setColor(Color.WHITE);
+        graphics.drawString("Upgrade Points: " + Player.getEXP(), 400,20);
     }
 
     //Go up when up arrow is pressed, go down when down arrow is pressed, enter when enter is pressed
     @Override
     protected void keyPressed(int keyCode) {
         switch(keyCode) {
+            case KeyEvent.VK_ESCAPE:
+                super.gameStateManager.stackState(new MainMenu(gameStateManager));
+                break;
             case KeyEvent.VK_UP:
                 if (this.selected > 0) this.selected--;
                 break;

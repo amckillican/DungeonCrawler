@@ -31,9 +31,10 @@ public class Splash extends GameState {
     //When enter is pressed go to main menu
     @Override
     protected void keyPressed(int keyCode) {
-        if (keyCode == KeyEvent.VK_ENTER) {
+        if (keyCode == KeyEvent.VK_ENTER)
             super.gameStateManager.stackState(new MainMenu(gameStateManager));
-        }
+        else if (keyCode == KeyEvent.VK_ESCAPE)
+            System.exit(0);
     }
 
     @Override

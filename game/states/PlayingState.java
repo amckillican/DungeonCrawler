@@ -80,6 +80,7 @@ public class PlayingState extends GameState {
 			case KeyEvent.VK_S -> this.player.setMovingDown(true);
 			case KeyEvent.VK_D -> this.player.setMovingRight(true);
 			case KeyEvent.VK_ENTER -> this.player.attack();
+			case KeyEvent.VK_ESCAPE -> super.gameStateManager.stackState(new MainMenu(gameStateManager));
 		}
 	}
 	//when w,a,s,d is released stop moving

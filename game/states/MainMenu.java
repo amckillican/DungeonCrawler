@@ -10,7 +10,7 @@ import dungeoncrawler.framework.gamestates.GameStateManager;
 import dungeoncrawler.framework.gui.WindowManager;
 
 public class MainMenu extends GameState {
-
+	//Set up an array with strings to display options
 	private final String[] optionsMenu;
 	private static final String START_GAME = "Start Game!";
 	private static final String QUIT_GAME = "Quit game";
@@ -26,7 +26,7 @@ public class MainMenu extends GameState {
 	@Override
 	protected void loop() {
 	}
-
+	//Set a background colour and print out the array with menu options
 	@Override
 	protected void render(Graphics graphics) {
 		graphics.setColor(new Color(30, 30, 70));
@@ -39,7 +39,7 @@ public class MainMenu extends GameState {
 			graphics.drawString(this.optionsMenu[i], 20, 50 + i * 40);
 		}
 	}
-
+	//If up is pressed move up 1 on the menu same for down and if enter is pressed check which option was selected and change the game state to it
 	@Override
 	protected void keyPressed(int keyCode) {
 		switch(keyCode) {

@@ -88,7 +88,7 @@ public class Player extends Entity {
 	}
 	//Adds damage dealt
 	public static void addDamage(){
-		damage+=5;
+		damage+=1;
 	}
 	//Adds an upgrade point
 	public static void addEXP(){
@@ -105,14 +105,12 @@ public class Player extends Entity {
 	//Moves player and uses sprite based off of direction player is facing
 	@Override
 	public void move() {
-		if(this.attackTime == 0) {
-			super.move();
-			switch (super.facing) {
-				case NORTH -> super.entityID = Resources.PLAYER_BACK;
-				case SOUTH -> super.entityID = Resources.PLAYER;
-				case WEST -> super.entityID = Resources.PLAYER_LEFT;
-				case EAST -> super.entityID = Resources.PLAYER_RIGHT;
-			}
+		super.move();
+		switch (super.facing) {
+			case NORTH -> super.entityID = Resources.PLAYER_BACK;
+			case SOUTH -> super.entityID = Resources.PLAYER;
+			case WEST -> super.entityID = Resources.PLAYER_LEFT;
+			case EAST -> super.entityID = Resources.PLAYER_RIGHT;
 		}
 	}
 	//Attack timer cool down

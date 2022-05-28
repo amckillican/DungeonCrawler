@@ -17,7 +17,7 @@ public class Splash extends GameState {
     protected void loop() {
 
     }
-
+    //Render splashscreen image and text
     @Override
     protected void render(Graphics graphics) {
         graphics.drawImage(Resources.TEXTURES.get(21), 0, 0, null);
@@ -27,7 +27,7 @@ public class Splash extends GameState {
         graphics.drawString("Press Enter To Begin", 300, 275);
         graphics.drawString("By: Adam Fischer, Alex McKillican and Ben Smith", 10, 425);
     }
-
+    //When enter is pressed go to main menu
     @Override
     protected void keyPressed(int keyCode) {
         switch(keyCode) {

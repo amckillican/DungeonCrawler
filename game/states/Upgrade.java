@@ -9,14 +9,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-
+//Create array with options
 public class Upgrade extends GameState {
     private final String[] upgradeMenu;
     private static final String BACK = "Back";
     private static final String HEALTH = "Health";
     private static final String DAMAGE = "Damage";
     private int selected;
-
+    //Add options to array
     protected Upgrade(GameStateManager manager) {
         super(manager);
         this.upgradeMenu = new String[] {BACK, HEALTH, DAMAGE};
@@ -27,7 +27,7 @@ public class Upgrade extends GameState {
     protected void loop() {
 
     }
-
+    //Render in the menu and the amount of upgrade points player has
     @Override
     protected void render(Graphics graphics) {
         graphics.setColor(new Color(30, 30, 70));
@@ -42,7 +42,7 @@ public class Upgrade extends GameState {
         }
     }
 
-
+    //Go up when up arrow is pressed, go down when down arrow is pressed, enter when enter is pressed
     @Override
     protected void keyPressed(int keyCode) {
         switch(keyCode) {
@@ -55,6 +55,7 @@ public class Upgrade extends GameState {
             case KeyEvent.VK_ENTER:
                 switch (this.upgradeMenu[selected]){
                     case HEALTH -> {
+                        //If player doesn't have enough exp dont upgrade
                         if(Player.getEXP() > 0) {
                             Player.addHealth();
                             Player.removeEXP();
@@ -66,6 +67,7 @@ public class Upgrade extends GameState {
                             Player.removeEXP();
                         }
                     }
+                    //When back is pressed go back to the main menu
                     case BACK -> super.gameStateManager.stackState(new MainMenu(gameStateManager));
                 }
                 break;

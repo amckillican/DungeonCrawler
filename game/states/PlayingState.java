@@ -18,11 +18,11 @@ import dungeoncrawler.game.world.generator.LevelGenerator;
 import dungeoncrawler.game.world.generator.RoomData;
 
 public class PlayingState extends GameState {
-
+	//Initialize variables
 	private final LevelGenerator generator;
 	private World world;
 	private final Player player;
-	
+	//Tell game state manager what game state to play and create new levels and the player
 	protected PlayingState(GameStateManager manager) {
 		super(manager);
 		this.generator = new LevelGenerator();
@@ -32,21 +32,25 @@ public class PlayingState extends GameState {
 
 	@Override
 	protected void loop() {
+		//Move the player
 		this.player.move();
+		//Change the room if player leaves current room
 		this.world.changeRoom(player);
-		
+		//Detect collisions
 		this.collisions();
-		
+		//Let player interact with room
 		this.world.getRoom().featureInteraction(player);
-		
+		//Constantly regen health if health is lost
 		this.player.regenerateHealth();
+		//Attack when player attacks
 		this.playerAttacks();
+		//If player dies go back to main screen
 		if(player.getHp() < 1){
 			super.gameStateManager.stackState(new MainMenu(gameStateManager));
 			Player.addEXP();
 		}
 	}
-
+	//Render in the room, player, enemies, and status bars at the top
 	@Override
 	protected void render(Graphics graphics) {
 		this.world.getRoom().render(graphics);
@@ -66,6 +70,7 @@ public class PlayingState extends GameState {
 	}
 
 	@Override
+	//When w,a,s,d are pressed move in that direction
 	protected void keyPressed(int keyCode) {
 		switch (keyCode) {
 			case KeyEvent.VK_W -> this.player.setMovingUp(true);
@@ -75,7 +80,7 @@ public class PlayingState extends GameState {
 			case KeyEvent.VK_Q -> this.player.attack();
 		}
 	}
-
+	//when w,a,s,d is released stop moving
 	@Override
 	protected void keyReleased(int keyCode) {
 		switch (keyCode) {
@@ -85,7 +90,7 @@ public class PlayingState extends GameState {
 			case KeyEvent.VK_D -> this.player.setMovingRight(false);
 		}
 	}
-	
+	//Generate a new room randomly
 	private void generateLevel() {
 		this.generator.reset();
 		while(!this.generator.finished()) {
@@ -102,17 +107,17 @@ public class PlayingState extends GameState {
 		for(int i=0;i<25;i++) {
 			this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.ENEMY, 5, this.player));
 		}
-		
+		//Spawn the player
 		this.spawnPlayer();
 	}
-	
+	//Spawns player randomly in room
 	private void spawnPlayer() {
 		if(this.world.getRoom(0, 0).getData().getTileAt(player.x / Tile.SIZE, player.y / Tile.SIZE).getID() != Resources.FLOOR) {
 			this.player.replaceRandomly();
 			this.spawnPlayer();
 		}
 	}
-
+	//Does collisions with objects
 	private void collisions() {
 		RoomData roomIn = this.world.getRoom().getData();
 		for(int i=0;i<roomIn.getSizeX();i++) {
@@ -124,7 +129,7 @@ public class PlayingState extends GameState {
 			}
 		}
 	}
-	
+	//When player walks over chest give random loot
 	private void givePlayerRandomLoot() {
 		switch (MathHelper.randomInt(3)) {
 			case 0 -> this.player.addArmor(MathHelper.randomInt(3, 5));
@@ -132,7 +137,7 @@ public class PlayingState extends GameState {
 			case 2 -> this.player.instantHeal(MathHelper.randomInt(2, 5));
 		}
 	}
-	
+	//When player attacks deal damage, start cool down, hit enemy back
 	private void playerAttacks() {
 		this.player.decreaseTime();
 		for(int i=0;i<this.world.getRoom().getEnemies().size();i++) {

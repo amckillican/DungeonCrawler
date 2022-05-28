@@ -43,10 +43,10 @@ public class MainMenu extends GameState {
 	@Override
 	protected void keyPressed(int keyCode) {
 		switch(keyCode) {
-		case KeyEvent.VK_UP:
+		case KeyEvent.VK_W:
 			if(this.selected > 0) this.selected--;
 			break;
-		case KeyEvent.VK_DOWN:
+		case KeyEvent.VK_S:
 			if(this.selected < this.optionsMenu.length-1) this.selected++;
 			break;
 		case KeyEvent.VK_ENTER:

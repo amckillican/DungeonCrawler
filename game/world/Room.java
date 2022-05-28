@@ -50,6 +50,11 @@ public class Room {
 		else
 			this.spawnEnemy(new Enemy(enemy));
 	}
+
+	public void enemyKnockback(Enemy enemy) {
+
+	}
+
 	//Renders the enemies and features
 	public void render(Graphics graphics) {
 		this.data.render(graphics);

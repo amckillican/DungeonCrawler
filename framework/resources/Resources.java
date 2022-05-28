@@ -36,6 +36,8 @@ public class Resources {
 	public static final byte TUSH2 = 27;
 	public static final byte GARNER = 28;
 	public static final byte GARNER2 = 29;
+	public static final byte TUT = 30;
+	public static final byte DEAD = 31;
 
 
 	//Create a hash map of the rooms and an arraylist of the textures

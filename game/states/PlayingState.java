@@ -50,7 +50,7 @@ public class PlayingState extends GameState {
 		this.playerAttacks();
 		//If player dies go back to main screen
 		if(player.getHp() < 1){
-			super.gameStateManager.stackState(new MainMenu(gameStateManager));
+			super.gameStateManager.stackState(new Dead(gameStateManager));
 			Player.addEXP();
 		}
 	}

@@ -22,7 +22,7 @@ public class Entity extends Rectangle {
 	
 	protected int speed;
 	
-	protected MathHelper.Direction facing;
+	public static MathHelper.Direction facing;
 	
 	protected byte animationFrame;
 	protected byte animationDelay;
@@ -35,7 +35,7 @@ public class Entity extends Rectangle {
 		this.left = false;
 		this.right = false;
 		this.speed = 5;
-		this.facing = MathHelper.Direction.SOUTH;
+		facing = MathHelper.Direction.SOUTH;
 		this.animationFrame = 0;
 	}
 	//Get the ID of the object
@@ -46,19 +46,19 @@ public class Entity extends Rectangle {
 	public void move() {
 		if(up) {
 			super.y-=this.speed;
-			this.facing = MathHelper.Direction.NORTH;
+			facing = MathHelper.Direction.NORTH;
 		}
 		if(down) {
 			super.y+=this.speed;
-			this.facing = MathHelper.Direction.SOUTH;
+			facing = MathHelper.Direction.SOUTH;
 		}
 		if(left) {
 			super.x-=this.speed;
-			this.facing = MathHelper.Direction.WEST;
+			facing = MathHelper.Direction.WEST;
 		}
 		if(right) {
 			super.x+=this.speed;
-			this.facing = MathHelper.Direction.EAST;
+			facing = MathHelper.Direction.EAST;
 		}
 	}
 	//Sets the way player is moving to up

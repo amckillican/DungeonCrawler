@@ -108,7 +108,7 @@ public class Player extends Entity {
 	@Override
 	public void move() {
 		super.move();
-		switch (super.facing) {
+		switch (facing) {
 			case NORTH -> super.entityID = Resources.PLAYER_BACK;
 			case SOUTH -> super.entityID = Resources.PLAYER;
 			case WEST -> super.entityID = Resources.PLAYER_LEFT;
@@ -127,7 +127,7 @@ public class Player extends Entity {
 	//Finds where the attack will hit
 	public Rectangle getAttackBox() {
 		if(this.attackTime == 20) {
-			switch(super.facing) {
+			switch(facing) {
 			case NORTH:
 				return new Rectangle(super.x, super.y - super.height, super.width, super.height);
 			case SOUTH:
@@ -155,10 +155,12 @@ public class Player extends Entity {
 		graphics.drawImage(Resources.TEXTURES.get(entityID + animationFrame), super.x, super.y, super.width, super.height, null);
 	}
 	//Calculate the damage dealt to enemy
-	public void damage(int amount) {
+	public void damage(int amount, MathHelper.Direction knockback) {
 		if(this.damageTime == 0) {
 			this.hp -= (amount + damage);
 			this.damageTime = 50;
 		}
+		super.x += knockback.dirX * 30;
+		super.y += knockback.dirY * 30;
 	}
 }

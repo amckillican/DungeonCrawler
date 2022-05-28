@@ -10,6 +10,7 @@ import dungeoncrawler.framework.gamestates.GameStateManager;
 import dungeoncrawler.framework.resources.Resources;
 import dungeoncrawler.framework.utils.MathHelper;
 import dungeoncrawler.game.entities.Enemy;
+import dungeoncrawler.game.entities.Entity;
 import dungeoncrawler.game.entities.Player;
 import dungeoncrawler.game.world.Feature;
 import dungeoncrawler.game.world.Tile;
@@ -144,12 +145,13 @@ public class PlayingState extends GameState {
 			this.world.getRoom().getEnemies().get(i).move();
 			
 			if(this.world.getRoom().getEnemies().get(i).intersects(this.player)) {
-				this.player.damage(5 -  5*this.player.getArmor()/100);
+				this.player.damage(5 -  5*this.player.getArmor()/100, Entity.facing);
+				this.world.getRoom().getEnemies().get(i).blowBack(this.player.getFacing());
 			}
 			
 			if(this.world.getRoom().getEnemies().get(i).intersects(this.player.getAttackBox())) {
-				this.world.getRoom().getEnemies().get(i).damage(3, this.player.getFacing());
 				if(this.world.getRoom().getEnemies().get(i).getHp() <= 0) {
+					//noinspection SuspiciousListRemoveInLoop
 					this.world.getRoom().getEnemies().remove(i);
 					this.player.giveGold(MathHelper.randomInt(2, 5));
 				}

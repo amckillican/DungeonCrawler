@@ -19,7 +19,7 @@ public class Player extends Entity {
 	private byte regenDelay;
 	private int armor;
 	private int gold;
-	private static int exp = 8;
+	private static int exp = 0;
 	private static int damage = 0;
 	private static int attackSpeed = 0;
 	

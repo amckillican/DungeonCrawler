@@ -36,6 +36,7 @@ public class Room {
 	public void featureInteraction(Player player) {
 		for(int i=0;i<this.features.size();i++) {
 			if(this.features.get(i).intersects(player))
+				//noinspection SuspiciousListRemoveInLoop
 				this.features.remove(i);
 		}
 	}
@@ -49,10 +50,6 @@ public class Room {
 			this.enemies.add(enemy);
 		else
 			this.spawnEnemy(new Enemy(enemy));
-	}
-
-	public void enemyKnockback(Enemy enemy) {
-
 	}
 
 	//Renders the enemies and features

@@ -108,7 +108,7 @@ public class PlayingState extends GameState {
 		for(int i=0;i<12;i++) {
 			this.world.getRoomRandom().placeFeature(new Feature(Resources.CHEST, this::givePlayerRandomLoot));
 		}
-		
+		//As the player descends the ladder to new levels use a different enemy sprite and give them more health
 		for(int i=0;i<25;i++) {
 			if(Level == 1) {
 				this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.ENEMY, enemyHealth + 3, this.player));
@@ -125,6 +125,7 @@ public class PlayingState extends GameState {
 			if(Level == 5){
 				this.world.getRoomRandom().spawnEnemy(new Enemy(Resources.GARNER, enemyHealth + 15, this.player));
 			}
+			//Once you pass level 5 use all the sprites randomly, continue giving more health
 			if(Level > 5){
 				int badGuy = MathHelper.randomInt(5);
 				if(badGuy == 0){

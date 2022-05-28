@@ -17,7 +17,7 @@ public class Enemy extends Entity {
 	public Enemy(byte id, int health, Player target) {
 		super(id, MathHelper.randomInt(2, 14), MathHelper.randomInt(2, 7));
 		this.target = target;
-		super.speed = 2;
+		super.speed = (int)Math.ceil(PlayingState.Level/2.0) + 1;
 		this.hp = health;
 	}
 	//Create a copy of this enemy for times where there is more than one

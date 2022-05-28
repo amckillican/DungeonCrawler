@@ -12,7 +12,6 @@ import javax.swing.Timer;
 
 import dungeoncrawler.framework.gamestates.GameStateManager;
 import dungeoncrawler.framework.gui.WindowManager;
-import dungeoncrawler.game.states.MainMenu;
 import dungeoncrawler.game.states.Splash;
 
 public class Engine {

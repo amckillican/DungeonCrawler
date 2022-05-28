@@ -12,7 +12,7 @@ public class LevelGenerator {
 	private int posY;
 	
 	private HashSet<MathHelper.Direction>[][] roomsData;
-	private boolean generated[][];
+	private boolean[][] generated;
 	//Create a room by using one of the hash sets and take in all the bytes equaling different textures
 	@SuppressWarnings("unchecked")
 	public void reset() {
@@ -55,8 +55,8 @@ public class LevelGenerator {
 	//Checks if all the blocks have been placed
 	public boolean finished() {
 		for (boolean[] booleans : this.generated) {
-			for (int j = 0; j < booleans.length; j++) {
-				if (!booleans[j]) return false;
+			for (boolean aBoolean : booleans) {
+				if (!aBoolean) return false;
 			}
 		}
 		return true;

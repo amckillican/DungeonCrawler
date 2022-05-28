@@ -29,15 +29,12 @@ public class Player extends Entity {
 	public Player() {
 		super(Resources.PLAYER, MathHelper.randomInt(2, 14), MathHelper.randomInt(2, 7));
 		this.hp = maxHp;
-		this.maxHp = maxHp;
 		this.regenDelay = 0;
 		this.armor = 0;
 		this.gold = 0;
 		this.attackTime = 0;
 		this.damageTime = 0;
-		this.damage = 0;
-		this.exp = exp;
-		this.attackSpeed = attackSpeed;
+		damage = 0;
 	}
 	//Places player randomly upon spawning into the games
 	public void replaceRandomly() {
@@ -55,11 +52,11 @@ public class Player extends Entity {
 	//Heals character instantly
 	public void instantHeal(int amount) {
 		this.hp += amount;
-		if(this.hp > this.maxHp) this.hp = this.maxHp;
+		if(this.hp > maxHp) this.hp = maxHp;
 	}
 	//Heals character slowly
 	public void regenerateHealth() {
-		if(this.hp < this.maxHp) this.regenDelay++;
+		if(this.hp < maxHp) this.regenDelay++;
 		else this.regenDelay = 0;
 		
 		if(this.regenDelay == 50) {
